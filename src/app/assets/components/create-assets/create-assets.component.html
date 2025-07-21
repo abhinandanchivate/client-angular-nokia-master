@@ -1,0 +1,46 @@
+<div class="container mt-4" style="max-width: 600px">
+  <h4>Asset Entry Form</h4>
+  <form [formGroup]="assetForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Asset Name</label>
+      <input type="text" class="form-control" formControlName="assetName" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Asset Type</label>
+      <input type="text" class="form-control" formControlName="assetType" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Asset Location</label>
+      <input type="text" class="form-control" formControlName="assetLocation" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Assigned To</label>
+      <input type="text" class="form-control" formControlName="assignedTo" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Deployed Date</label>
+      <input type="date" class="form-control" formControlName="deployedDate" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" formControlName="status">
+        <option *ngFor="let status of statusOptions" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="assetForm.invalid"
+    >
+      Submit Asset
+    </button>
+  </form>
+</div>
