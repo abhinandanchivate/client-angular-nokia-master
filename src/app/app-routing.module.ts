@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './core/components/layouts/landing/landing.component';
+import { UnauthorizedComponent } from './core/access/unauthorized/unauthorized.component';
 
 const routes: Routes = [
+  {
+    path: 'unauthorize',
+    component: UnauthorizedComponent,
+  },
   {
     path: '',
     component: LandingComponent,
