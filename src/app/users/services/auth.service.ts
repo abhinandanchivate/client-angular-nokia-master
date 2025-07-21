@@ -8,7 +8,10 @@ import { User } from '../models/user';
 export class AuthService {
   // it will perform the DI
   constructor(private http: HttpClient) {}
+  userLogin = (userDetails: any) => {
+    return this.http.post('/api/v1/users/login', userDetails);
+  };
   registerUser = (user: User) => {
-    return this.http.post('/api/v1/register', user);
+    return this.http.post('/api/v1/users/register', user);
   };
 }

@@ -31,5 +31,24 @@ export class RegisterComponent {
       return;
     }
     console.log(this.registerForm.value);
+    this.authService.registerUser(this.registerForm.value).subscribe({
+      next: (response) => {
+        // Handle successful registration
+        // For example: show a success message, reset form, or redirect
+        console.log('Registration successful:', response);
+
+        // this.router.navigate(['/login']);
+        // or
+        // this.registerForm.reset();
+        // or
+        // this.successMessage = 'Registration successful!';
+      },
+      error: (error) => {
+        // Handle error
+        console.error('Registration failed:', error);
+        // this.errorMessage = 'Registration failed. Please try again.';
+        // Optionally show more details based on error object
+      },
+    });
   }
 }
